@@ -1,4 +1,30 @@
-.todo_wrapper{
-    display: flex;
-    gap: 30px;
+.todo_wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+.todo_wrapper p{
+    cursor: pointer;
+}
+.btns_wrapper {
+  display: flex;
+  gap: 5px;
+}
+.compeleted {
+  text-decoration: line-through;
+  color: #6b6b6b;
+}
+.btn {
+  color: #6d28d9;
+  background-color: #fff;
+  border: 1px solid #6d28d9;
+  border-radius: 5px;
+  outline: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.delete {
+  color: rgb(236, 68, 68);
+  border: 1px solid rgb(236, 68, 68);
 }

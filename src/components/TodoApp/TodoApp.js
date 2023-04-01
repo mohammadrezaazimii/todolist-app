@@ -12,7 +12,9 @@ const TodoApp = () => {
     <div className={styles.container}>
       <SetTodoContext.Provider value={setTodos}>
         <TodoContext.Provider value={todos}>
+          <h2 className={styles.title}>To Do App</h2>
           <TodoForm />
+          
           <TodosList todos={todos} />
         </TodoContext.Provider>
       </SetTodoContext.Provider>
@@ -25,18 +27,25 @@ export const useSetTodo = () => useContext(SetTodoContext);
 export const TodoActions = () => {
   const todos = useContext(TodoContext);
   const setTodos = useSetTodo();
-  const onEdit = (id) => {
+  const onEdit = (editedTodo , id) => {
+    const updatedTodos = [...todos];
     const index = todos.findIndex((todo) => todo.id === id);
-    const editedTodo = { ...todos[index] };
-    
+    const selectedTodo = { ...todos[index] };
+    selectedTodo.work = editedTodo;
+    updatedTodos[index] = selectedTodo;
+    setTodos(updatedTodos);
   };
   const onCompelete = (id) => {
-    const newTodos = [...todos];
+    const updatedTodos = [...todos];
     const index = todos.findIndex((todo) => todo.id === id);
-    const compeletedTodo = { ...todos[index] };
-    compeletedTodo.isCompeleted = true;
-    newTodos[index] = compeletedTodo;
-    setTodos(newTodos);
+    const selectedTodo = { ...todos[index] };
+    selectedTodo.isCompeleted = !selectedTodo.isCompeleted;
+    updatedTodos[index] = selectedTodo;
+    setTodos(updatedTodos);
+  };
+  const onDelete = (id) => {
+    const updatedTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(updatedTodos);
   };
   const addTodoHandler = (todo) => {
     const newTodo = {
@@ -46,5 +55,5 @@ export const TodoActions = () => {
     };
     setTodos([...todos, newTodo]);
   };
-  return { onEdit, onCompelete, addTodoHandler, todos };
+  return { onCompelete, addTodoHandler, onDelete, onEdit, setTodos, todos };
 };

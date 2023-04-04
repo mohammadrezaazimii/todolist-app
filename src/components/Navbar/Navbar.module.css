@@ -21,3 +21,7 @@
     color: #fff;
     box-shadow: rgba(0, 0, 0, 0.25) 1.95px 1.95px 2.6px;
 }
+.select{
+    width: 150px;
+    text-align: center;
+}

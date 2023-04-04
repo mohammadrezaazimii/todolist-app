@@ -16,7 +16,6 @@ const TodoApp = () => {
   useEffect(() => {
     onFilterTodos(filter.value);
   }, [todos, filter]);
-
   const onFilterTodos = (filter) => {
     switch (filter) {
       case "compeleted":
@@ -59,6 +58,7 @@ export const TodoActions = () => {
   const setTodos = useSetTodo();
   const filteredTodos = useContext(FilteredTodoContext);
   const setFilteredTodos = useContext(SetFilteredTodosContext);
+
   const onEdit = (editedTodo, id) => {
     const updatedTodos = [...todos];
     const index = todos.findIndex((todo) => todo.id === id);
@@ -67,6 +67,7 @@ export const TodoActions = () => {
     updatedTodos[index] = selectedTodo;
     setTodos(updatedTodos);
   };
+
   const onCompelete = (id) => {
     const updatedTodos = [...todos];
     const index = todos.findIndex((todo) => todo.id === id);
@@ -86,7 +87,6 @@ export const TodoActions = () => {
       isCompeleted: false,
     };
     setTodos([...todos, newTodo]);
-    setFilteredTodos([...filteredTodos, newTodo]);
   };
   return {
     onCompelete,

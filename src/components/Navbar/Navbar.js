@@ -22,6 +22,7 @@ const TodoHeader = ({ filter,selectChangeHandler }) => {
         <span className={styles.uncompeleted_todo}>{unCompeletedTodos}</span>
       </h3>
       <Select
+      className={styles.select}
         options={filterOptions}
         value={filter}
         onChange={selectChangeHandler}

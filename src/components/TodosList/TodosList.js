@@ -3,10 +3,9 @@ import React, { useState } from "react";
 import Todo from "../Todo/Todo";
 import TodoForm from "../TodoForm/TodoForm";
 import styles from "./TodoList.module.css";
-
+import { TodoActions } from "../TodoApp/TodoApp";
 const TodosList = ({ todos }) => {
   const [edit, setEdit] = useState({ id: null, text: "", isCompeleted: false });
-  console.log(Boolean(edit));
   const resetEdit = () => {
     setEdit({ id: null, text: "", isCompeleted: false });
   };

@@ -1,0 +1,23 @@
+.container{
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-around;
+}
+.todo_header{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.uncompeleted_todo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    /* border: 1px solid #6d28d9; */
+    background-color: #6d28d9;
+    color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 1.95px 1.95px 2.6px;
+}
